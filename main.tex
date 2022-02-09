@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage[top=5mm,includehead,headheight=63pt, left=2.5cm,bottom=2.5cm,right=2.5cm,headsep=0.3cm]{geometry} 
+\usepackage{fontspec}
+\setmainfont[
+ Path = fonts/,
+ BoldFont={Veleka-Bold.otf}, 
+ ItalicFont={Veleka-Italic.otf},
+ BoldItalicFont={Veleka-BoldItalic.otf}
+ ]{Veleka-Regular.otf}
+
+
+%% bibliography packages
+\usepackage{biblatex} 
+\addbibresource{biblo.bib} 
+
+%%charset packages
+\usepackage[utf8]{inputenc}
+\usepackage[english,bulgarian]{babel}
+\usepackage{textgreek}
+\usepackage{textcomp}
+\usepackage[T2A]{fontenc}
+
+%% hyperlinks
+\usepackage{hyperref}
+\usepackage{url}[hyphens]
+
+%% graphics packages
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\graphicspath{{imgs/}}
+\usepackage{float}
+
+
+
+
+%%Autoref language settings begin
+\renewcommand*{\figureautorefname}{Фиг.}
+\renewcommand*{\equationautorefname}{Уравн.}
+\renewcommand*{\subsectionautorefname}{Пар.}
+\renewcommand*{\subsubsectionautorefname}{\subsectionautorefname}
+\newcommand{\subfigureautorefname}{\figureautorefname}
+%%Autoref language settings end
+
+%%other
+\usepackage[inline]{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{breqn}
+\allowdisplaybreaks
+\usepackage{fancyhdr}
+\usepackage{afterpage}
+\usepackage{listings}
+\lstloadlanguages{[5.2]Mathematica}
+
+
+\title{Методи на Ойлер и Лагранж и теорема на Лайбниц. Интегрална форма на закона за запазване на масата. Уравнение на непрекъснатостта в
+променливи на Ойлер.}
+\author{Васил Иванов}
+\date{\today}
+
+\begin{document}
+\thispagestyle{empty} 
+\maketitle
+\thispagestyle{empty}
+\include{eulerlagrange.tex}
+\printbibliography
+\end{document}
