@@ -72,6 +72,7 @@ $\vec{r_k}(t_0)$ и да заместим в $A_L$:
 
 \subsection{Формула на Лайбниц}
 \subsubsection{Предварителни резултати}
+\label{sec:prelimenary_leibniz}
 Ще приведем някои предварителни резултати, които са важни за получаването на формулата на Лайбниц.
 Първия е свързан с якобиана на прехода между лагранжови и ойлерови координати:
 \begin{equation}
@@ -109,9 +110,43 @@ $\vec{r_k}(t_0)$ и да заместим в $A_L$:
 	\frac{d \vec{I}}{d t} = \frac{d}{d t}\left(\iiint_{V(t)} \vec{A} d \tau\right)
 \end{equation*}
 За да правим интегрирането по един и същи обем $V_0$, който са заемали частиците в началния момент $t_0$, ще преминем към променливи на Лагранж.
-Тогава произовдната и интеграла ще комутират.
+Тогава производната и интеграла ще комутират.
 \begin{align*}
-	\frac{d \vec{I}}{d t} & = \frac{d}{d t}\left(\iiint_{V(t)} \vec{A} d \tau\right) \\
-	                      & = \frac{d}{d t}\left(\iiint_{V_0} \vec{A} J d \xi^0_1 d \xi^0_2 d \xi^0_2 \right) \\
-                          & = \left(\iiint_{V_0} \frac{d(\vec{A} J) }{d t} d \xi^0_1 d \xi^0_2 d \xi^0_2 \right) 
+	\frac{d \vec{I}}{d t} & = \frac{d}{d t}\left(\iiint_{V(t)} \vec{A} d \tau\right)                             \\
+	                      & = \frac{d}{d t}\left(\iiint_{V_0} \vec{A} J d \xi^0_1 d \xi^0_2 d \xi^0_2 \right)    \\
+	                      & = \left(\iiint_{V_0} \frac{d(\vec{A} J) }{d t} d \xi^0_1 d \xi^0_2 d \xi^0_2 \right)
 \end{align*}
+Трябва да се върнем обратно в Ойлерови координати. Правейки обратното преобразувание:
+\begin{align*}
+	\frac{d \vec{I}}{d t} & = \left(\iiint_{V_0} \frac{d(\vec{A} J) }{d t} d \xi^0_1 d \xi^0_2 d \xi^0_2 \right) \\
+	                      & = \iiint_{V(t)} \frac{1}{J}\frac{d(\vec{A} J) }{d t} d \tau                          \\
+	                      & = \iiint_{V(t)} \frac{d \vec{A}}{d t} + \frac{\vec{A}}{J} \frac{d J}{d t} d \tau
+\end{align*}
+Прилагайки резултатите от \autoref{sec:prelimenary_leibniz} получаваме крайно:
+\begin{equation}
+	\label{eq:leibniz}
+	\frac{d}{d t}\left(\iiint_{V(t)} \vec{A} d \tau\right) = \iiint_{V(t)} \left[
+		\frac{\partial \vec{A}}{\partial t} + (\vec{v} \cdot \nabla) \vec{A} + \vec{A} \nabla \cdot \vec{v}
+		\right] d\tau
+\end{equation}
+Формулата на Лайбниц е обобщение на практика на класическата формула за итеграл с променливи граници от анализа. Тазо връзка обаче има ни позволява да получим някои ключови връзки в хидродинамиката.
+Нека $\vec{A} = 1$. Тогава итегралът:
+\begin{equation*}
+	V_{R} = \iiint_{R(t)} d \tau
+\end{equation*}
+Дава обема на флуидната област област $R(t)$. Да намерим $\frac{d V_{R}}{d t}$ като използваме формулата на Лайбниц:
+\begin{equation}
+	\frac{d V_{R}}{d t} = \frac{d}{d t} \left( \iiint_{R(t)} d \tau \right) =  \iiint_{R(t)} \nabla \cdot \vec{v} d \tau
+\end{equation}
+Ще използваме класически подход от механиката на непрекъснатите среди за дефиниране на точкови величини. Делим двете страни на уравнението на мярката на областта - $V_{R}$, а за да се ,,освободим`` от
+интеграла прилагаме теоремата за средните стойности, за някоя специална точка от обема, такава че:
+\begin{equation*}
+	\frac{1}{V_{R}} \frac{V_{R}}{d t} = \left(\frac{\partial v_i}{\partial x_i}\right)^*
+\end{equation*}
+Пускаме $V_{R} \to 0$, т.е. преминаваме към точкова характеристика и получаваме, че:
+\begin{equation}
+    \label{eq:expansion_res}
+    \lim_{V_{R} \to 0} \left(\frac{1}{V_{R} } \frac{d V_{R}}{d t} \right) = \nabla \cdot \vec{v}
+\end{equation}
+T.e. дивергенцията на полето на скоростта има смисъл на относително обемено разширение на флуиден обем.
+%%EOF
