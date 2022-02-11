@@ -4,7 +4,7 @@
 \subsubsection{Поставновка на задачата}
 За потенциалните течения, можем да представим полето на скоростите като градиент на потенциал
 \begin{equation*}
-    \vec{v} = \nabla \Phi
+	\vec{v} = \nabla \Phi
 \end{equation*}
 Където $\Phi$ е някоя скаларна функция. Причината за въвеждане на такъв потенциал е, че такива течения се анализират относително по-лесно. Замествайки горното в условието за несвиваем флуид ($\nabla \cdot \vec{v} = 0$), получаваме че:
 
@@ -14,7 +14,7 @@
 \end{equation*}
 За случая на стационарно равнинно, течение можем да запишем:
 \begin{align}
-    \label{eq:planar_flow}
+	\label{eq:planar_flow}
 	\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0 \\
 	u = \frac{\partial \Phi}{\partial x}, v = \frac{\partial \Phi}{\partial y}
 \end{align}
@@ -25,55 +25,178 @@
 \end{equation*}
 За да затворим диференциалната задача, трябва да наложим съответните гранични условия.
 \begin{align*}
-	\frac{\partial \Phi}{\partial x} \Bigg|_{\infty} & = U_{\infty} \\
-	\frac{\partial \Phi}{\partial y} \Bigg|_{\infty} & = V_{\infty} \\
-	\frac{\partial \Phi}{\partial \vec{n}} \Bigg|_{S}      & = 0
+	\frac{\partial \Phi}{\partial x} \Bigg|_{\infty}  & = U_{\infty} \\
+	\frac{\partial \Phi}{\partial y} \Bigg|_{\infty}  & = V_{\infty} \\
+	\frac{\partial \Phi}{\partial \vec{n}} \Bigg|_{S} & = 0
 \end{align*}
-Където $S$ e повърхнината на тялото, а $\vec{n}$ - нормалата към тази повърхнина. Това последно г.у. е условие за непроникване на 
+Където $S$ e повърхнината на тялото, а $\vec{n}$ - нормалата към тази повърхнина. Това последно г.у. е условие за непроникване на
 флуида в тялото.
 Уравнението на Лаплас и горните г.у. водят до задача на Нойман с хомогенно г.у. върху повърхността.
 \subsubsection{Функция на тока}
 Въвеждаме функцията $\Psi(x,y)$, такава че:
 \begin{align}
-    \label{eq:flow_func_uv}
-    u &= \frac{\partial \Psi}{\partial y} \\
-    v &= -\frac{\partial \Psi}{\partial x} \nonumber
+	\label{eq:flow_func_uv}
+	u & = \frac{\partial \Psi}{\partial y}            \\
+	v & = -\frac{\partial \Psi}{\partial x} \nonumber
 \end{align}
 Така \autoref{eq:leibniz} бива автоматично удовлетворено. $\Psi(x,y)$ наричаме функция на тока, т.като изолиниите $\left(\{(x,y): \Psi(x,y) = const\}\right)$ съвпадат с линиите на тока на даденото течение.
 Горното лесно се проверява чрез определението за линиите на тока:
 \begin{equation*}
-    \frac{dx}{u(x,y)} = \frac{dy}{v(x,y)} 
+	\frac{dx}{u(x,y)} = \frac{dy}{v(x,y)}
 \end{equation*}
 Заместваме \autoref{eq:flow_func_uv} в горното и получаваме:
 \begin{equation*}
-    \frac{\partial \Psi}{\partial x} d x + \frac{\partial \Psi}{\partial y} d y = 0
+	\frac{\partial \Psi}{\partial x} d x + \frac{\partial \Psi}{\partial y} d y = 0
 \end{equation*}
 С което доказахме твърдението, че изолиниите на функцията на тока са именно линиите на тока.
 
 Функцията на тока можем да интерпретираме лесно, като за целта нека пресметнем количеството флуид, протичащ през кривата AB в дадена равнината. От дефиницията на потока, можем лесно да запишем интегралното количество флуид:
 \begin{equation*}
-    Q = \int_{AB} = \vec{v} \cdot \vec{n} ds
+	Q = \int_{AB} = \vec{v} \cdot \vec{n} ds
 \end{equation*}
 Където е $\vec{n}$ е нормалата към кривата AB. Лесно се проверява, чe $\vec{n} = (\frac{dy}{ds}, -\frac{d x}{d s})$. Прилагайки теоремата на Грийн, съвсем директно получаваме:
 \begin{equation}
-    Q = \int_{AB} = \vec{v}.vec{n} ds = \int_{AB} \nabla \Psi \cdot \vec{dr} = \int_{A}^{B} d \Psi = \Psi(B) - \Psi(A) 
+	Q = \int_{AB} = \vec{v}.\vec{n} ds = \int_{AB} \nabla \Psi \cdot \vec{dr} = \int_{A}^{B} d \Psi = \Psi(B) - \Psi(A)
 \end{equation}
 Това означава, че количеството течност, което се движи между две линии на тока е равно на разликата от стойностите на функцията на тока върху тези линии (консервативно поле).
 Освен това, лесно се вижда, че:
 \begin{align*}
-    \Omega_z = (\nabla \times \vec{v}) \cdot \vec{k} = - \nabla^2 \Psi
+	\Omega_z = (\nabla \times \vec{v}) \cdot \vec{k} = - \nabla^2 \Psi
 \end{align*}
 Тогава ако имаме безвихрово равнинно течение, горното преминава в уравнение на Лаплас за $\nabla^2 \Psi$.
 Г.у. за функцията на тока на безкрайност са на Дирихле:
 \begin{equation*}
-    \nabla \Psi \big|_\infty = (-V_\infty, U_\infty)
+	\nabla \Psi \big|_\infty = (-V_\infty, U_\infty)
 \end{equation*}
 
 Лесно се проверява, че нормалната компонента на скоростта на повърхността на тялото е $v_n = \vec{v} \cdot \vec{n} = \frac{\partial \Psi}{\partial s}$. За идеален флуид искаме $v_n =0$. За г.у. на тази граница получаваме:
 \begin{align*}
-    \frac{\partial \Psi}{\partial s}\big|_{S} &= 0 \\
-    \therefore \Psi_S  &= const
+	\frac{\partial \Psi}{\partial s}\big|_{S} & = 0     \\
+	\therefore \Psi_S                         & = const
 \end{align*}
-Крайно получихме задача на Дирихле за у-нието на Лаплас, която трябва да решим за да намерим функцията на тока. 
-
+Крайно получихме задача на Дирихле за у-нието на Лаплас, която трябва да решим за да намерим функцията на тока.
+\subsection{Подход на комплексния потенциал за моделиране на течения}
 \subsubsection{Комплексен потенциал и комплексна скорост}
+Замествайки \autoref{eq:flow_func_uv} в пълния диференциал на потенциалната функция $\Phi$ виждаме, че потенциалната функция $\Phi$ и функцията на тока $\Psi$ удовлетворяват условията на Коши-Риман:
+\begin{align*}
+	\frac{\partial \Phi}{\partial x} & = \frac{\partial \Psi}{\partial y}  \\
+	\frac{\partial \Phi}{\partial y} & = -\frac{\partial \Psi}{\partial x}
+\end{align*}
+Т.е. съществува функцията $F = F(z)$ на комплексната променлива $z = x + i y$, такава че:
+\begin{equation*}
+	F = \Phi(x,y) + i \Psi(x,y)
+\end{equation*}
+$F(z)$ се нарича комплексен потенциал или характеристична функция на течението. За пълния дифернциал тогава имаме:
+\begin{equation*}
+	dF = \frac{\partial F}{\partial x} dx + \frac{\partial F}{\partial y} dy = u (dx + i dy) - i v (dx + i dy) = (u-iv) dz
+\end{equation*}
+Делим на $dz$ двете страни и получаваме, т.нар. комплексна скорост:
+\begin{equation*}
+	\frac{dF}{dz} = u - i v
+\end{equation*}
+Обикновено с $V$ се означава скоростта $V = u + i v$, a с $\bar{V} = u - i v$. Като големината и на двете скорости се дава с:
+\begin{equation*}
+	|V| = \sqrt{u^2 + v^2}
+\end{equation*}
+Лесно се вижда, че $V$ и $\bar{V}$ са симетрични спрямо оста x. Към тази скорост можем да прилагаме всички познати техники на векторния
+анализ и да получаваме различни полезни резултати. Най-важният от тях е, че ако знаем комплексния потенциал $F(z)$ можем да намерим компонентите на реалната
+скорост $\vec{v}$ като използваме горните дефиниции и връзки:
+\begin{align*}
+	F       & = u + i v                       \\
+	\bar{V} & = \frac{d F}{d z}               \\
+	\vec{v} & = (\Re(\bar{V}), -\Im(\bar{V}))
+\end{align*}
+От равенствата на Коши-Риман можем да получим условието за ортогоналност на линиите на тока и потенциалните линии:
+\begin{equation}
+	\nabla \Phi \cdot \nabla \Psi = 0
+\end{equation}
+
+\subsubsection{Примери за моделиране на флуидни течения}
+\paragraph{Пример 1}
+Нека $F(z) = U z$, където $U \in \Re$ и $U > 0$, то можем да разделим потенциала на:
+\begin{align*}
+	\Phi(x,y) & = U x \\
+	\Psi(x,y) & = U y
+\end{align*}
+Тогава за скоростта получаваме директно $u = \frac{\partial \Phi}{\partial x} = U = const$.
+Линиите на тока тогава са $y = const$ (успоредни на оста x)
+\paragraph{Пример 2}
+Нека имаме математическото течение:
+\begin{equation}
+	F(z) = \frac{Q}{2 \pi} ln(z)
+\end{equation}
+За $Q \in \Re$, сменяйки към полярна форма на z:
+\begin{equation*}
+	F(z) = \frac{Q}{2 \pi} ln(r e^-(i \theta))  = \frac{Q}{2 \pi}(ln(r) + i \theta)
+\end{equation*}
+\begin{align*}
+	\Phi & = \frac{Q}{2\pi} ln r   \\
+	\Psi & = \frac{Q}{2\pi} \theta
+\end{align*}
+Тук лесно пък се вижда, че линиите на тока са лъчите $\theta = const$, a компонентите на скоростта са съответно:
+\begin{equation*}
+	\vec{v} = \left(\frac{\partial \Phi}{\partial r},\frac{1}{r}\frac{\partial \Phi}{\partial \theta}\right) = \left(\frac{Q}{2 \pi r}, 0\right)_{<r, \theta>}
+\end{equation*}
+При $Q>0$ скоростта е насочена навън от центъра на к.с. и течението се нарича източник. Q се нарича производителност на източника. В противен случай, когато $Q<0$ течението се нарича бездна.
+\paragraph{Пример 3}
+Нека:
+\begin{equation*}
+	F(z) = \frac{\Gamma}{2 \pi i} ln z, \Gamma \ne 0, \Gamma \in \Re
+\end{equation*}
+Умножаваме и делим на $i$ и сменяме към полярни координати. Получаваме за потенциала:
+\begin{equation*}
+	F(z) = \frac{\Gamma}{2 \pi} \theta - i \frac{\Gamma}{2\pi} ln r
+\end{equation*}
+Тогава, аналогично на предния пример:
+\begin{align*}
+	\Phi & = \frac{\Gamma}{2 \pi} \theta \\
+	\Psi & = - \frac{\Gamma}{2 \pi} ln r
+\end{align*}
+И за скоростта получаваме (в полярни координати):
+\begin{equation}
+	\vec{v} = \left(\frac{\partial \Phi}{\partial r},\frac{1}{r}\frac{\partial \Phi}{\partial \theta}\right) = \left(0, \frac{\Gamma}{2 \pi} \frac{1}{r}\right)_{<r, \theta>}
+\end{equation}
+Линиите на тока тук пък са $r=const$. Това са окръжности, центрирани около началото на к.с. и това е течение от вида ,,концентриран вихър``. При $\Gamma >0$, $v_\theta >0$ и флуидът циркулира по часовниката стрелка, в противен случай - обратно на часовниката стрелка.
+За да ,,отместим`` концентрирания вихър от началото можем да зададем комплексния потенциал като:
+\begin{equation*}
+	F(z) = \frac{\Gamma}{2 \pi i} ln (z-a), \Gamma \ne 0, \Gamma \in \Re
+\end{equation*}
+\paragraph{Пример 4} Нека $\epsilon>0$ и нека в $(-\epsilon,0)$ поставим източник, а в $(\epsilon,0)$ поставим бездна. На такава система, комплексният потенциал можем да запишем като:
+\begin{equation}
+	\label{eq:dipole_complex_pot}
+	F(z) = \frac{Q}{2 \pi} ln (z+\epsilon) - \frac{Q}{2 \pi} ln (z-\epsilon)
+\end{equation}
+Търсим комплесният потенциал на течение, което се получава при граничния преход, такъв че:
+\begin{equation}
+	\lim_{\epsilon \to 0, Q \to \infty } Q . 2 \epsilon = M (Q>0), M < \infty
+\end{equation}
+Взимайки \autoref{eq:dipole_complex_pot} и извършвайки въпросния граничен преход:
+\begin{align*}
+	F(z) & = \lim_{\epsilon \to 0, Q \to \infty } \left[ \frac{Q}{2 \pi} ln (z+\epsilon) - \frac{Q}{2 \pi} ln (z-\epsilon) \right] \\
+	     & = \frac{1}{2\pi} Q.2\epsilon \lim \frac{ln(z+\epsilon)-ln(z+-\epsilon)}{2\epsilon}                                      \\
+	     & = \frac{M}{2 \pi} \frac{d}{dz} (ln z) = \frac{M}{2 \pi} \frac{1}{z}
+\end{align*}
+Умножаваме и делим по комплексно спрегнатото на $z$  - $\bar{z}$ и извършваме действията, при което получаваме:
+\begin{equation}
+	F(z) = \frac{M}{2 \pi} \frac{1}{z} = \frac{M}{2 \pi} \frac{x}{x^2 + y^2} - i \frac{M}{2 \pi} \frac{y}{x^2 + y^2}
+\end{equation}
+За потенциалната функция и функцията на тока имаме (в декартови и полярни координати):
+\begin{align*}
+	\Phi(x,y) & =  \frac{M}{2 \pi} \frac{x}{x^2 + y^2} = \frac{M}{2 \pi} \frac{cos \theta}{r}    \\
+	\Psi(x,y) & =  -\frac{M}{2 \pi} \frac{y}{x^2 + y^2} = - \frac{M}{2 \pi} \frac{sin \theta}{r}
+\end{align*}
+Линиите на тока тогава ще са изолиините: 
+\begin{equation*}
+    \frac{y}{x^2+y^2} = const = C
+\end{equation*}
+Записвайки горното като имплицитно зададена крива крива:
+\begin{equation*}
+    x^2 + y^2 - \frac{y}{C} = 0
+\end{equation*}
+Добавяйки към двете страни $\frac{1}{4 C^2}$ и допълвайки квадрата, получаваме квадратичната крива:
+\begin{equation}
+    x^2 + \left(y - \frac{1}{2 C}\right)^2 = \frac{1}{4 C^2}
+\end{equation}
+Това са окръжности, преминаващи през координатното начало и имащи центрове върху координатна ос. В това течение, центърът на к.с. е едновременно източник и бездна. Такова течение се нарича дипол.
+Величината $M$ се нарича диполен момент. Ако се доближат два дипола с противоположни знаци и се извърши съответния граничен преход, ще се получи дипол от втори ред. Така може да се построят диполи от 
+произволно висок ред, нарчени мултиполи. Теченията съответващи на тези мултиполи са потенциални и техниките за техния анализ са аналогични на тези разгледани в настоящия пример.
